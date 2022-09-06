@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from Usuario.models import Models
 
-# Create your views here.
+def crearusuario (request):
+    usuarios= Models.Ciudadano.objects.all()
+    return render(request, '')
