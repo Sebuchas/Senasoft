@@ -21,6 +21,11 @@ class Certificacion(models.Model):
     idSondeo=models.ForeignKey(Sondeo, db_column=u"idSondeo", verbose_name=u"Sondeo", on_delete=models.CASCADE)
     nombre=models.CharField(max_length=6, db_column=u"nSondeo", verbose_name=u"Nombre Sondeo")
     
-class Preguntas(models.Model):
+class Tema(models.Model):
+    tema = models.TextField(db_column=u"tema")
+
+class Pregunta(models.Model):
     pregunta = models.TextField(db_column=u"pregunta")
     idSondeo=models.ForeignKey(Sondeo, db_column=u"idSondeo", on_delete=models.CASCADE)
+    idTema=models.ForeignKey(Tema, db_column=u"idTema", on_delete=models.CASCADE)
+
