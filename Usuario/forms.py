@@ -1,7 +1,11 @@
+from tkinter import Widget
 import django import forms
-from .models import Page
+from Usuario.models import *
 
-class ClienteForm(forms.ModelFrom):
+class CiudadanoForm(forms.ModelFrom):
     class Meta:
-        model=Page
+        model=Ciudadano
         fields=['']
+        widgets = {
+            
+        }

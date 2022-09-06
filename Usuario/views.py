@@ -1,15 +1,16 @@
 import re
-from django.shortcuts import render
-from Usuario.models import Models
-
+from django.shortcuts import render, redirect
+from Usuario.models import *
+from Usuario.forms import *
 
 def crearusuario (request):
-    usuarios= Models.Ciudadano.objects.all()
+    usuarios= Ciudadano.objects.all()
     titulo="Crear usuarios"
     if request.method =='POST':
-        form=Clienteform(request.POST)
+        form=CiudadanoForm(request.POST)
         if form.is_valid():
             form.save()
     else:
-        form=Clienteform
-    return redirect(request, '')
+        form=CiudadanoForm
+    
+    return redirect(request, '', context)
