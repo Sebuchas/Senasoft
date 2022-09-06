@@ -10,7 +10,7 @@ def crearUsuario(request):
         form= CiudadanoForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('usuarios-aprendiz')
+        return redirect('crear-usuario')
     else:
         form = CiudadanoForm()
     context={
