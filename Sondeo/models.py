@@ -22,7 +22,7 @@ class Certificacion(models.Model):
     nombre=models.CharField(max_length=6, db_column=u"nSondeo", verbose_name=u"Nombre Sondeo")
     
 class Tema(models.Model):
-    tema = models.TextField(db_column=u"tema")
+    tema = models.CharField(db_column=u"tema", max_length=250)
 
 class Pregunta(models.Model):
     pregunta = models.TextField(db_column=u"pregunta")
