@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Sondeo',
     'Usuario',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [

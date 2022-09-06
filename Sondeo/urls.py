@@ -1,8 +1,7 @@
 from django.urls import path
-
-from . import views
+from Sondeo.views import crearTema, crearPregunta
 
 urlpatterns = [
-    path('/', views.special_case_2003),
-   
+    path('creartema/', crearTema, name='crear_tema'),
+    path('crearpregunta/', crearPregunta, name='crear_pregunta'),
 ]
