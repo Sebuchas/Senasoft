@@ -1,9 +1,6 @@
-import re
 from django.shortcuts import render, redirect
-from Usuario.forms import CiudadanoForm
-from Usuario.models import Ciudadano
-
-
+from Usuario.models import *
+from Usuario.forms import *
 
 def crearusuario (request):
     usuarios= Ciudadano.objects.all()
@@ -16,3 +13,4 @@ def crearusuario (request):
     else:
         form=CiudadanoForm
     return redirect(request, 'usuarios/crear_usuario.html')
+

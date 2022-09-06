@@ -1,5 +1,5 @@
 from django import forms
-from Usuario.models import Ciudadano
+from Usuario.models import *
 
 class CiudadanoForm(forms.ModelForm):
     class Meta:
@@ -10,3 +10,4 @@ class CiudadanoForm(forms.ModelForm):
                 'barrio','f_nacimiento','etnia','discapacidad',
                 'estrato','n_educativo','d_tecnologicos',
                 'dispositivos','conectividad','t_afiliacion']
+
