@@ -1,0 +1,24 @@
+.titulo{
+    text-align: center;
+    border-bottom: 2px solid rgb(8, 8, 8);
+}
+.fondo-header{
+    background-color: beige !important;
+}
+.footer{
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    padding-bottom: 16px;
+    background: #111;
+    background: rgba(0,0,0,.90);
+    border-top: 2px solid rgb(8, 8, 8);
+    z-index:2000;
+    background-color: aqua;
+}
+
+html, body {
+    height: 100%;
+}
