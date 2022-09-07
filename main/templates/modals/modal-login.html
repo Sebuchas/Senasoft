@@ -1,16 +1,5 @@
-{% load crispy_forms_tags %}
 {% load static %}
-{% block contenido %}
-<main class="">
-    <div>
-        <h1 class="text-center">
-            Bienvenido al inicio!!
-        </h1>
-        <div class="text-center my-5">
-            <img class="img-index " src="{% static '/images/gente2.jpg' %}" ">
-        </div>
-    </div>
-</main>
+{% load crispy_forms_tags %}
 <div class="modal fade show" id="exampleModal" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog" style="display: block;">
     <div class="modal-dialog">
@@ -30,13 +19,12 @@
                 
                 <a class="btn btn-secondary"
                     data-bs-dismiss="modal" href="{% url 'index' %}">Cancelar</a>
-                <a href="{% url 'inicio' %}"><input type="submit" value="Ingresar" class="btn btn-primary" value="Ingresar"></a>
-                <a href="{% url 'registrar' %}"><input type="button" value="Crear cuenta" class="btn btn-success" value="Crear cuenta"></a>
+                <input type="submit" class="btn btn-success" value="Ingresar"></button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<div class="modal-backdrop fade show"></div>
-{% endblock contenido %}
 
+
+<div class="modal-backdrop fade show"></div>
