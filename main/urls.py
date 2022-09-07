@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from main.views import SignUpView, BienvenidaView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('usuario/', include('Usuario.urls')),
     path('sondeo/', include('Sondeo.urls')),
+    path(r'^$', BienvenidaView.as_view(), name='bienvenida'),
+    path(r'^registrate/$', SignUpView.as_view(), name='sign_up'),
 ]
+
+
