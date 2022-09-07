@@ -2,14 +2,37 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 
+
 # from django.views.generic import CreateView, TemplateView
 
 # from .models import Perfil
 # from django.contrib.auth.views import LoginView, LogoutView 
 # from .forms import SignUpForm
+<<<<<<< HEAD
+=======
+
+
+
+# from django.shortcuts import render
+>>>>>>> 65d29efbc3ffabd19efcb5c989ad459e0793908f
 # from django.http import HttpResponse
 # from django.template.loader import render_to_string
 
+
+def inicio(request):
+    titulo_pagina="Inicio"      
+    context={
+        'titulo_pagina':titulo_pagina,
+    }
+    return render(request,'inicio.html',context)
+
+
+def index(request):
+    titulo_pagina="Inicio"      
+    context={
+        'titulo_pagina':titulo_pagina,
+    }
+    return render(request,'index.html',context)
 
 # class SignUpView(CreateView):
 #     model = Perfil
@@ -49,6 +72,7 @@ def inicio(request):
     if 'ingreso':
         print('Holiwipigui')
     return render(request,'index.html',context)
+
 
  
 # def certificado(request):

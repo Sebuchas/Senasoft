@@ -1,4 +1,4 @@
-<!-- Modal -->
+{% load static %}
 {% load crispy_forms_tags %}
 <div class="modal fade show" id="exampleModal" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog" style="display: block;">
@@ -7,7 +7,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Acceder</h5>
                 <a class="btn-close"
-                data-bs-dismiss="modal" href="{% url 'inicio' %}" aria-label="Close"></a>
+                data-bs-dismiss="modal" href="{% url 'index' %}" aria-label="Close"></a>
             </div>
             <div class="modal-body">
                 <form action="" method="POST">
@@ -18,11 +18,13 @@
             <div class="modal-footer">
                 
                 <a class="btn btn-secondary"
-                    data-bs-dismiss="modal" href="{% url 'inicio' %}">Cancelar</a>
+                    data-bs-dismiss="modal" href="{% url 'index' %}">Cancelar</a>
                 <input type="submit" class="btn btn-success" value="Ingresar"></button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+
 <div class="modal-backdrop fade show"></div>
