@@ -7,7 +7,7 @@
             Bienvenido al inicio!!
         </h1>
         <div class="text-center my-5">
-            <img class="img-index " src="{% static '/images/gente2.jpg' %}" ">
+            <img class="img-index " src="{% static '/images/gente2.jpg' %}" >
         </div>
     </div>
 </main>
@@ -16,7 +16,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Acceder</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Crear cuenta</h5>
                 <a class="btn-close"
                 data-bs-dismiss="modal" href="{% url 'index' %}" aria-label="Close"></a>
             </div>
@@ -27,16 +27,15 @@
                     
             </div>
             <div class="modal-footer">
-                
-                <a class="btn btn-secondary"
+                <a class="btn btn-danger Btn-White "
                     data-bs-dismiss="modal" href="{% url 'index' %}">Cancelar</a>
-                <a href="{% url 'inicio' %}"><input type="submit" value="Ingresar" class="btn btn-primary" value="Ingresar"></a>
-                <a href="{% url 'registrar' %}"><input type="button" value="Crear cuenta" class="btn btn-success" value="Crear cuenta"></a>
+                <a href="{% url 'index' %}"><input type="submit" value="Registrar" class="btn btn-success" value="Registrar"></a>
                 </form>
             </div>
         </div>
     </div>
 </div>
 <div class="modal-backdrop fade show"></div>
-{% endblock contenido %}
 
+<div class="modal-backdrop fade show"></div>
+{% endblock %}
