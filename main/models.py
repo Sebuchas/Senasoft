@@ -1,4 +1,5 @@
 
+
 # class Perfil(models.Model):
 #     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
 #     bio = models.CharField(max_length=255, blank=True)
@@ -16,3 +17,4 @@
 # def guardar_usuario_perfil(sender, instance, **kwargs):
 #     instance.perfil.save()
     
+

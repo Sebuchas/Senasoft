@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'Sondeo',
     'Usuario',
     'crispy_forms',
-    'main'
+    'main',
+    'cuenta'
 ]
 
 MIDDLEWARE = [
