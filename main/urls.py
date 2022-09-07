@@ -22,9 +22,10 @@ from django.contrib.auth import views as auth_views
 #     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 
 
+from operator import index
 from django.urls import include, path
 from django.contrib import admin
-# from main.views import inicio, certificado
+from main.views import inicio
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
@@ -36,6 +37,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('usuario/', include('Usuario.urls')),
     path('sondeo/', include('Sondeo.urls')),
+<<<<<<< HEAD
+    path('', inicio, name="inicio"),
+=======
 
     path('', index , name="index"),
     path('', inicio , name="inicio"),
@@ -52,6 +56,7 @@ urlpatterns = [
 
 
     # path('', inicio , name="inicio"),
+>>>>>>> 65d29efbc3ffabd19efcb5c989ad459e0793908f
     # path('certificado/', certificado , name="certificado"),
     #  # Logueo
     # path('login/', auth_views.LoginView.as_view(template_name='user/login.html'), name='usuario-login'),
