@@ -4,8 +4,13 @@ from django.contrib.auth import login, authenticate
 from django.views.generic import CreateView, TemplateView
 
 from .models import Perfil
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView 
 from .forms import SignUpForm
+
+
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.template.loader import render_to_string
 
 
 class SignUpView(CreateView):
@@ -24,9 +29,45 @@ class SignUpView(CreateView):
         return redirect('/')
 
 class BienvenidaView(TemplateView):
-   template_name = 'perfiles/bienvenida.html'
+   template_name = 'login/bienvenida.html'
 
 
 
 class SignInView(LoginView):
-    template_name = 'perfiles/iniciar_sesion.html'
+    template_name = 'login/ingreso.html'
+    
+
+
+class SignOutView(LogoutView):
+    pass
+
+
+def inicio(request):
+    titulo_pagina="Inicio"      
+    context={
+        'titulo_pagina':titulo_pagina,
+    }
+    if 'ingreso':
+        print('Holiwipigui')
+    return render(request,'index.html',context)
+
+ 
+def certificado(request):
+    titulo_pagina="Inicio"      
+    context={
+        'titulo_pagina':titulo_pagina,
+    }
+    return render(request,'certificado.html',context)          
+
+def export_pdf(request):
+
+    context = {}
+    html = render_to_string("report/report-pdf.html", context)
+
+    response = HttpResponse(content_type="application/pdf")
+    response["Content-Disposition"] = "inline; report.pdf"
+
+    font_config = FontConfiguration()
+    HTML(string=html).write_pdf(response, font_config=font_config)
+
+    return response

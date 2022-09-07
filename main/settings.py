@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Sondeo',
     'Usuario',
     'crispy_forms',
+    'main'
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,7 @@ STATICFILES_DIRS =[
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGOUT_REDIRECT_URL = 'inicio'
+LOGIN_REDIRECT_URL = 'inicio'
+LOGIN_URL="usuario-login"
