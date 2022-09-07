@@ -53,6 +53,7 @@ class Tema(models.Model):
     def clean(self):
         self.tema = self.tema.title()
 class Sondeo(models.Model):
+    nombre = models.CharField(verbose_name=u"Nombre", default="Sondeo", max_length=254)
     idTema=models.ForeignKey(Tema, db_column=u"idTema", on_delete=models.CASCADE, verbose_name=u"Tema")
     class Tipo(models.TextChoices):
         O = 'O',_('Opinión')
@@ -63,6 +64,10 @@ class Sondeo(models.Model):
     fechaCierre = models.DateField(db_column=u"fechaCierre", verbose_name=u"Fecha de Cierre")
     icono = models.ImageField(upload_to="media/", null=False, blank=False, default="media/icon.png")
     estado = models.BooleanField(default=True)
+    def __str__(self):
+        return self.nombre
+    def clean(self):
+        self.nombre = self.nombre.title()
 
 class Parametro(models.Model):
     idSondeo = models.ForeignKey(Sondeo, db_column=u"idSondeo", verbose_name=u"Sondeo", on_delete=models.CASCADE)

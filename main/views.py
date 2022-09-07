@@ -1,15 +1,12 @@
 
-# from django.shortcuts import render, redirect
-# from django.contrib.auth import login, authenticate
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
 
 # from django.views.generic import CreateView, TemplateView
 
 # from .models import Perfil
 # from django.contrib.auth.views import LoginView, LogoutView 
 # from .forms import SignUpForm
-
-
-# from django.shortcuts import render
 # from django.http import HttpResponse
 # from django.template.loader import render_to_string
 
@@ -43,14 +40,15 @@
 #     pass
 
 
-# def inicio(request):
-#     titulo_pagina="Inicio"      
-#     context={
-#         'titulo_pagina':titulo_pagina,
-#     }
-#     if 'ingreso':
-#         print('Holiwipigui')
-#     return render(request,'index.html',context)
+def inicio(request):
+    titulo_pagina="Inicio"
+    titulo = "Sondeo"
+    context={
+        'titulo_pagina':titulo_pagina,
+        'titulo':titulo,    }
+    if 'ingreso':
+        print('Holiwipigui')
+    return render(request,'index.html',context)
 
  
 # def certificado(request):

@@ -15,19 +15,20 @@ class PreguntaForm(forms.ModelForm):
 class SondeoForm(forms.ModelForm):
     class Meta:
         model = Sondeo
-        fields = {'idTema','tipo','fechaApertura','fechaCierre','icono'}
+        fields = {'nombre','idTema','tipo','fechaApertura','fechaCierre','icono'}
         widgets = {
+            'nombre':forms.Select(attrs={'class':'form-control'}),
             'idTema':forms.Select(attrs={'class':'form-control'}),
             'tipo':forms.Select(attrs={'class':'form-control'}),
             'fechaApertura': forms.DateInput(
                 format=('%d/%m/%Y'),
-                attrs={'class': 'form-control',
+                attrs={'class': 'form-control fuente',
                        'placeholder': 'Select a date',
                        'type': 'date'
                       }),
             'fechaCierre': forms.DateInput(
                 format=('%d/%m/%Y'),
-                attrs={'class': 'form-control',
+                attrs={'class': 'form-control fuente',
                        'placeholder': 'Select a date',
                        'type': 'date'
                       }),}
