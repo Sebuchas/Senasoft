@@ -1,6 +1,6 @@
 
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+# from django.shortcuts import render, redirect
+# from django.contrib.auth import login, authenticate
 
 
 # from django.views.generic import CreateView, TemplateView
@@ -60,15 +60,14 @@ def index(request):
 #     pass
 
 
-def inicio(request):
-    titulo_pagina="Inicio"
-    titulo = "Sondeo"
-    context={
-        'titulo_pagina':titulo_pagina,
-        'titulo':titulo,    }
-    if 'ingreso':
-        print('Holiwipigui')
-    return render(request,'index.html',context)
+# def inicio(request):
+#     titulo_pagina="Inicio"      
+#     context={
+#         'titulo_pagina':titulo_pagina,
+#     }
+#     if 'ingreso':
+#         print('Holiwipigui')
+#     return render(request,'index.html',context)
 
 
  

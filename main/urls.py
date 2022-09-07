@@ -21,10 +21,9 @@ from django.contrib.auth import views as auth_views
 #     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 
 
-from operator import index
 from django.urls import include, path
 from django.contrib import admin
-from main.views import inicio
+# from main.views import inicio, certificado
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
