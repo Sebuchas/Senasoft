@@ -8,13 +8,10 @@ from django.contrib.auth import login, authenticate
 # from .models import Perfil
 # from django.contrib.auth.views import LoginView, LogoutView 
 # from .forms import SignUpForm
-<<<<<<< HEAD
-=======
 
 
 
 # from django.shortcuts import render
->>>>>>> 65d29efbc3ffabd19efcb5c989ad459e0793908f
 # from django.http import HttpResponse
 # from django.template.loader import render_to_string
 
