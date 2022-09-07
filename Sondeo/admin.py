@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from Sondeo.models import *
+
+admin.site.register(Sondeo)
+admin.site.register(Parametro)
+admin.site.register(Certificacion)
+admin.site.register(Tema)
+admin.site.register(Pregunta)
