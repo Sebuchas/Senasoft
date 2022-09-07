@@ -15,7 +15,7 @@ def crearTema(request):
         "titulo_pagina": titulo_pagina,
         "form":form
     }
-    return render(request, 'usuarios/crear.html', context)
+    return render(request, 'crear.html', context)
 
 def crearPregunta(request):
     titulo_pagina="pregunta"
@@ -30,7 +30,7 @@ def crearPregunta(request):
         "titulo_pagina": titulo_pagina,
         "form":form
     }
-    return render(request, 'usuarios/crear.html', context)
+    return render(request, 'crear.html', context)
 
 def crearSondeo(request):
     titulo_pagina="sondeo"
@@ -45,7 +45,7 @@ def crearSondeo(request):
         "titulo_pagina": titulo_pagina,
         "form":form
     }
-    return render(request, 'usuarios/crear.html', context)
+    return render(request, 'crear.html', context)
 
 def crearParametro(request, pk):
     titulo_pagina="pregunta"
@@ -60,5 +60,5 @@ def crearParametro(request, pk):
         "titulo_pagina": titulo_pagina,
         "form":form
     }
-    return render(request, 'usuarios/crear.html', context)
+    return render(request, 'crear.html', context)
 
