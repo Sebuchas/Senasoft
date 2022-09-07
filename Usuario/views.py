@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from Usuario.models import *
 from Usuario.forms import *
 
-def crearUsuario(request):
+def datosUsuario(request):
     titulo_pagina="ciudadano"
     if request.method == 'POST':
         form= CiudadanoForm(request.POST)
@@ -15,5 +15,5 @@ def crearUsuario(request):
         "titulo_pagina": titulo_pagina,
         "form":form
     }
-    return render(request, 'usuarios/crear.html', context)
+    return render(request, 'crear.html', context)
 

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Sondeo',
     'Usuario',
     'crispy_forms',
+    'main'
 ]
 
 MIDDLEWARE = [
@@ -127,7 +128,15 @@ STATICFILES_DIRS =[
   os.path.join(BASE_DIR, 'static'),
 ]
 
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGOUT_REDIRECT_URL = 'inicio'
+LOGIN_REDIRECT_URL = 'inicio'
+LOGIN_URL="usuario-login"
