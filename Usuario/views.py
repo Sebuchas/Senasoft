@@ -3,9 +3,7 @@ from Usuario.models import *
 from Usuario.forms import *
 from django.contrib.auth.models import User
 
-def datosUsuario(request, pk):
-    unico= User.objects.get(id=pk)
-    unico2= Ciudadano.objects.filter(idUser_id = pk)
+def datosUsuario(request):
     titulo_pagina="ciudadano"
     if request.method == 'POST':
         form= CiudadanoForm(request.POST)
@@ -17,8 +15,6 @@ def datosUsuario(request, pk):
     context={
         "titulo_pagina": titulo_pagina,
         "form":form,
-        "unico":unico,
-        "unico2":unico2
     }
     return render(request, 'usuarios/crear.html', context)
 

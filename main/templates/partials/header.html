@@ -12,14 +12,13 @@
         </a>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 color-w link-secondary">Inicio</a></li>
-          <li><a href="#" class="nav-link px-2 color-w link-dark">Ciudadanos</a></li>
-          <li><a href="#" class="nav-link px-2 color-w link-dark">Sondeos</a></li>
+          <li><a href="{% url 'inicio' %}" class="nav-link px-2 color-w link-secondary" href="{% url 'inicio' %}">Inicio</a></li>
+          <li><a href="{% url 'crear_sondeo' %}" class="nav-link px-2 color-w link-dark">Perfil</a></li>
+          <li><a  href="{% url 'crear_sondeo' %}" class="nav-link px-2 color-w link-dark">Sondeos</a></li>
         </ul>
 
         <div class="col-md-3 text-end">
-          <button type="button" class="btn btn-outline-primary me-2">Cerrar
-            sesión</button>
+          <div class=""><a href="{% url 'index' %}"><input type="button" class="btn  btn-primary" value="Cerrar sesión"></a>
         </div>
       </div>
     </div>
