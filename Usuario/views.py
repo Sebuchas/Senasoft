@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from Usuario.models import *
 from Usuario.forms import *
+from django.contrib.auth.models import User
 
-def datosUsuario(request):
+def datosUsuario(request, pk):
+    datos= Ciudadano.objects.filter(idUser_id=pk)
+    user=User.objects.get(id=pk)
+
     titulo_pagina="ciudadano"
     if request.method == 'POST':
         form= CiudadanoForm(request.POST)
@@ -13,7 +17,9 @@ def datosUsuario(request):
         form = CiudadanoForm()
     context={
         "titulo_pagina": titulo_pagina,
-        "form":form
+        "form":form,
+        "datos":datos,
+        "user":user
     }
     return render(request, 'usuarios/crear.html', context)
 
