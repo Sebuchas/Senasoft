@@ -15,14 +15,12 @@ def inicio(request):
     }
     return render(request,'inicio.html',context)
 
-
 def index(request):
     titulo_pagina="Inicio"      
     context={
         'titulo_pagina':titulo_pagina,
     }
     return render(request,'index.html',context)
-
  
 def certificado(request):
     titulo_pagina="Inicio"      
