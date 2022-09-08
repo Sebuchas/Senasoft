@@ -9,11 +9,14 @@ from django.template.loader import render_to_string
 
 
 def inicio(request):
-    titulo_pagina="Inicio"      
+    titulo_pagina="Inicio"
+    titulo = "Sondeo"
     context={
         'titulo_pagina':titulo_pagina,
-    }
-    return render(request,'inicio.html',context)
+        'titulo':titulo,    }
+    if 'ingreso':
+        print('Holiwipigui')
+    return render(request,'index.html',context)
 
 
 def index(request):
