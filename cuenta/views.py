@@ -4,8 +4,7 @@ from django.contrib import messages
 from cuenta.models import *
 from django.contrib.auth.models import User
 
-def registrar(request, pk):
-	unico= User.objects.get(id=pk)
+def registrar(request):
 	register= Postt.objects.all(
 	)
 	if request.method == 'POST':
@@ -14,11 +13,10 @@ def registrar(request, pk):
 			form.save()
 			username = form.cleaned_data['username']
 			messages.success(request, f'Usuario {username} creado correctamente')
-			return redirect('datos_usuario', pk)
+			return redirect('datos_usuario')
 	else:
 		form = UserRegisterForm()
 	context = { 'form' : form,
-            	'unico':unico,
             	'register':register
 	}	
 	return render(request, 'user/registrar.html', context)

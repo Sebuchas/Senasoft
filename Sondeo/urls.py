@@ -6,5 +6,7 @@ urlpatterns = [
     path('crearpregunta/', crearPregunta, name='crear_pregunta'),
     path('', crearSondeo, name='crear_sondeo'),
     path('parametro/<int>', crearParametro, name='crear_parametro'),
+    path('parametro/<int:pk>/', crearPregunta, name='sondeo-preguntas'),
+    
     # path('certificacion/<int>', certificacion, name='certificacion'),
 ]

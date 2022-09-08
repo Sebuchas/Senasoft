@@ -11,13 +11,12 @@
             <form class="fuente" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form|crispy }}
+                
                 <input class="btn btn-success btn-block mt-1"
                     type="submit" Value="Agregar">
             </form>
         <div class="row align-items-center">
-            <a href="crear_parametro" class="btn btn-success mt-3" >Agregar preguntas</a>
-            <a href="" class="btn btn-success mt-3">Agregar temas</a>
-            <a href="" class="btn btn-success mt-3">Agregar parámetros</a>
+            
         </div>
         </div>
     </div>
@@ -30,10 +29,11 @@
             <h4 class="ps-2 pt-2">Sondeo No.{{sondeo.id}} {{sondeo.name}}</h3>
             <img src="{{sondeo.icono.url}}" class="card-img-top" alt="">
             <div class="card-body">
-                <h5 class="card-title">{{sondeo.idTema.tema}}</h5>
+                <h5 class="card-title">{{sondeo.nombre}}</h5>
                 <p class="card-text">{{sondeo.fechaApertura}} - {{sondeo.fechaCierre}}</p>
 
                 <a href="#" class="btn btn-primary">Ver Sondeo</a>
+                <a href="sondeo-preguntas" class="btn btn-success mt-3" >Agregar preguntas</a>
                 </div>
             <br>
             </div>
