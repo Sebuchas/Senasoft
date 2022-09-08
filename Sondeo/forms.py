@@ -17,6 +17,7 @@ class SondeoForm(forms.ModelForm):
         model = Sondeo
         fields = {'idTema','tipo','fechaApertura','fechaCierre','icono'}
         widgets = {
+            'nombre':forms.TextInput(attrs={'class':'form-control'}),
             'idTema':forms.Select(attrs={'class':'form-control'}),
             'tipo':forms.Select(attrs={'class':'form-control'}),
             'fechaApertura': forms.DateInput(
