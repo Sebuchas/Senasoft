@@ -1,7 +1,9 @@
+from datetime import datetime
 from django.shortcuts import render, redirect
 from Sondeo.models import *
 from Sondeo.forms import *
 from django.contrib.auth.decorators import login_required, permission_required
+from datetime import datetime
 
 @login_required(login_url="usuario-login")
 @permission_required('is_superuser')
@@ -40,6 +42,7 @@ def crearPregunta(request):
 @login_required(login_url="usuario-login")
 @permission_required('is_superuser')
 def crearSondeo(request):
+    fecha = datetime.today().strftime('%d-%m-%Y')
     titulo_pagina="sondeo"
     sondeos = Sondeo.objects.all()
     titulo = "Sondeo"
@@ -47,11 +50,13 @@ def crearSondeo(request):
     if request.method == 'POST':
         form= SondeoForm(request.POST, request.FILES)
         parametros = ParametroForm(request.POST)
-        fechaApertura = Sondeo.objects.get(fA=fechaApertura)
-        fechaCierre = Sondeo.objects.get(fC=fechaCierre)
-        if fechaCierre >= fechaApertura:
-            if form.is_valid():
+        if form.is_valid():
+            fechaApertura = form.cleaned_data.get('fechaApertura')
+            fechaCierre = form.cleaned_data.get('fechaCierre')
+            if (fechaApertura<=fechaCierre):
                 form.save()
+            else:
+                form = SondeoForm()
         return redirect('crear_sondeo')
     else:
         form = SondeoForm()
@@ -60,7 +65,8 @@ def crearSondeo(request):
         "form":form,
         "sondeos":sondeos,
         "titulo":titulo,
-        "parametros":parametros
+        "parametros":parametros,
+        "fecha":fecha
     }
     return render(request, 'admin/pag-admin.html', context)
 
@@ -82,3 +88,5 @@ def crearParametro(request, pk):
     }
     return render(request, 'admin/crear.html', context)
 
+def crearCertificado(request, pk, kp):
+    radicado = random.randint(start, end)

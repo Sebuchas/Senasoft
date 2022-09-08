@@ -27,24 +27,26 @@
     <!-- filtros -->
 
     <div class="container-fluid c_cards d-flex m-2 flex-wrap align-items-stretch justify-content-around">
-        {% if estado == "publicado" or estado == "abierto" %}
-            {% for sondeo in sondeos %}
-                <div class="card cards_ m-2">
-                <h4 class="ps-2 pt-2">Sondeo No.{{sondeo.id}} {{sondeo.name}}</h3>
-                <img src="{{sondeo.icono.url}}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">{{sondeo.idTema.tema}}</h5>
-                    <p class="card-text">{{sondeo.fechaApertura}} - {{sondeo.fechaCierre}}</p>
-                    {% if estado == "abierto" %}
-                        <a href="#" class="btn btn-primary">Publicar</a>
-                    {% else %}
-                        <a href="#" class="btn btn-primary">Ver Sondeo</a>
+        {% for sondeo in sondeos %}
+            {% if sondeo.estado == "publicado" or sondeo.estado == "abierto" %}
+                    <div class="card cards_ m-2">
+                        <h4 class="ps-2 pt-2">Sondeo No.{{sondeo.id}} {{sondeo.name}}</h3>
+                        <img src="{{sondeo.icono.url}}" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{sondeo.idTema.tema}}</h5>
+                            <p class="card-text">{{sondeo.fechaApertura}} - {{sondeo.fechaCierre}}</p>
+                            {% if estado == "abierto" %}
+                                <a href="#" class="btn btn-primary">Publicar</a>
+                            {% else %}
+                                <a href="#" class="btn btn-primary">Ver Sondeo</a>
+                            </div>
+                            {% endif %}
+                        <br>
                     </div>
-                    {% endif %}
-                <br>
-                </div>
-            {% endfor %}
-        {% endif %}
+            {% endif %}
+        {% endfor %}
+            
+        
     </div>
 
 </div>
