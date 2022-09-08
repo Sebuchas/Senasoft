@@ -1,18 +1,17 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegisterForm
 from django.contrib import messages
-from django.contrib.auth.models import User
 
 
-def registrar(request):
-	existe=User.objects.all()
+def registrar(request, pk):
 	if request.method == 'POST':
 		form = UserRegisterForm(request.POST)	
 		if form.is_valid() :	
 			form.save()
 			username = form.cleaned_data['username']
+			
 			messages.success(request, f'Usuario {username} creado correctamente')
-			return redirect('index')
+			return redirect('datos-usuario')
 	else:
 		form = UserRegisterForm()
 	context = { 'form' : form,
