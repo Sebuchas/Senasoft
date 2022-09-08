@@ -64,28 +64,29 @@ class Sondeo(models.Model):
     fechaApertura = models.DateField(db_column=u"fechaApertura", verbose_name=u"Fecha de Apertura")
     fechaCierre = models.DateField(db_column=u"fechaCierre", verbose_name=u"Fecha de Cierre")
     icono = models.ImageField(upload_to="media/", null=False, blank=False, default="media/icon.png")
-    estado = models.BooleanField(default=True)
-    def __str__(self):
-        return self.nombre
-    def clean(self):
-        self.nombre = self.nombre.title()
+    class Estado(models.TextChoices):
+        abierto = 'abierto',_('Abierto')
+        publicado = 'publicado',_('Publicado')
+        eliminado = 'eliminado',_('Eliminado')
+    estado = models.CharField(max_length=9, db_column=u"estado", choices=Estado.choices, default=Estado.abierto)
 
-class Parametro(models.Model):
-    idSondeo = models.ForeignKey(Sondeo, db_column=u"idSondeo", verbose_name=u"Sondeo", on_delete=models.CASCADE)
-    sexo = models.CharField(max_length=2, db_column=u"sexo", choices=Sexo.choices, null=True, blank=True, default=Sexo.PD)
+    sexo = models.CharField(max_length=2, db_column=u"sexo", choices=Sexo.choices, null=True, blank=True)
     departamento = models.CharField(verbose_name=u"Departamento", db_column=u"departamento", max_length=80, null=True, blank=True)
     municipio = models.CharField(verbose_name=u"Municipio", db_column=u"municipio", max_length=80, null=True, blank=True)
     barrio = models.CharField(verbose_name=u"Barrio/Vereda", db_column=u"barrio", max_length=80, null=True, blank=True)
     etnia = models.CharField(max_length=50, db_column=u"etnia", null=True, blank=True)
-    discapacidad = models.CharField(max_length=2, db_column=u"discapacidad", choices=Discapacidad.choices, null=True, blank=True, default=Discapacidad.NA)
-    estrato = models.CharField(max_length=2, db_column=u"estrato", choices=Estrato.choices, null=True, blank=True, default=Estrato.A)
-    n_educativo = models.CharField(max_length=2, db_column=u"nEducativo", choices=N_educativo.choices, null=True, blank=True, default=N_educativo.B)
-    d_tecnologicos = models.CharField(max_length=2, db_column=u"dTecnologicos", choices=SiNo.choices, null=True, blank=True, default=SiNo.NO)
-    dispositivos = models.CharField(max_length=2, db_column=u"dispositivos", choices=Dispositivos.choices, null=True, blank=True, default=Dispositivos.C)
-    conectividad = models.CharField(max_length=2, db_column=u"conectividad", choices=SiNo.choices, null=True, blank=True, default=SiNo.NO)
-    t_afiliacion = models.CharField(max_length=2, db_column=u"afiliacion", choices=T_afiliacion.choices, null=True, blank=True, default=T_afiliacion.S)
+    discapacidad = models.CharField(max_length=2, db_column=u"discapacidad", choices=Discapacidad.choices, null=True, blank=True)
+    estrato = models.CharField(max_length=2, db_column=u"estrato", choices=Estrato.choices, null=True, blank=True)
+    n_educativo = models.CharField(max_length=2, db_column=u"nEducativo", choices=N_educativo.choices, null=True, blank=True)
+    d_tecnologicos = models.CharField(max_length=2, db_column=u"dTecnologicos", choices=SiNo.choices, null=True, blank=True)
+    dispositivos = models.CharField(max_length=2, db_column=u"dispositivos", choices=Dispositivos.choices, null=True, blank=True)
+    conectividad = models.CharField(max_length=2, db_column=u"conectividad", choices=SiNo.choices, null=True, blank=True)
+    t_afiliacion = models.CharField(max_length=2, db_column=u"afiliacion", choices=T_afiliacion.choices, null=True, blank=True)
+
     def __str__(self):
-        return self.id
+        return self.nombre
+    def clean(self):
+        self.nombre = self.nombre.title()
 
 class Certificacion(models.Model):
     idCiudadano=models.ForeignKey(Ciudadano, db_column=u"idCiudadano", verbose_name=u"Ciudadano", on_delete=models.CASCADE)

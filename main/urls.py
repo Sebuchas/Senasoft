@@ -26,17 +26,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('usuario/', include('Usuario.urls')),
     path('sondeo/', include('Sondeo.urls')),
+    path('registrar/', include('cuenta.urls')),
 
     path('', index , name="index"),
 
-    path('login/', auth_views.LoginView.as_view(template_name='user/login.html'), name='usuario-login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='usuario-logout'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='usuario-login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='usuario-logout'),
 
-    path('registrar/', include('cuenta.urls')),
-
-    path('certificado/', certificado , name="certificado"),
-
-    path('login/', auth_views.LoginView.as_view(template_name='user/login.html'), name='usuario-login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='usuario-logout'),
+    # path('certificado/', certificado , name="certificado"),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

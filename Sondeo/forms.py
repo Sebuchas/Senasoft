@@ -34,12 +34,12 @@ class SondeoForm(forms.ModelForm):
 
 class ParametroForm(forms.ModelForm):
     class Meta:
-        model = Parametro
-        fields = '__all__'
+        model = Sondeo
+        fields = {'sexo','departamento','municipio','etnia','discapacidad','estrato','n_educativo','d_tecnologicos','dispositivos','conectividad','t_afiliacion'}
         widgets = {
             'sexo':forms.Select(attrs={'class':'form-control'}),
-            'departamento': forms.SelectMultiple(attrs={'class':'form-control'}),
-            'municipio': forms.SelectMultiple(attrs={'class':'form-control'}),
+            'departamento': forms.Select(attrs={'class':'form-control'}),
+            'municipio': forms.Select(attrs={'class':'form-control'}),
             'etnia': forms.Select(attrs={'class':'form-control'}),
             'discapacidad': forms.Select(attrs={'class':'form-control'}),
             'estrato': forms.Select(attrs={'class':'form-control'}),

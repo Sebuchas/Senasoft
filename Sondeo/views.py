@@ -11,14 +11,14 @@ def crearTema(request):
         form= TemaForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('crear_tema')
+        return redirect('crear_sondeo')
     else:
         form = TemaForm()
     context={
         "titulo_pagina": titulo_pagina,
         "form":form
     }
-    return render(request, 'crear.html', context)
+    return render(request, 'admin/crear.html', context)
 
 @login_required(login_url="usuario-login")
 @permission_required('is_superuser')
@@ -35,7 +35,7 @@ def crearPregunta(request):
         "titulo_pagina": titulo_pagina,
         "form":form
     }
-    return render(request, 'crear.html', context)
+    return render(request, 'admin/crear.html', context)
 
 @login_required(login_url="usuario-login")
 @permission_required('is_superuser')
@@ -43,10 +43,15 @@ def crearSondeo(request):
     titulo_pagina="sondeo"
     sondeos = Sondeo.objects.all()
     titulo = "Sondeo"
+    parametros = ParametroForm()
     if request.method == 'POST':
         form= SondeoForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
+        parametros = ParametroForm(request.POST)
+        fechaApertura = Sondeo.objects.get(fA=fechaApertura)
+        fechaCierre = Sondeo.objects.get(fC=fechaCierre)
+        if fechaCierre >= fechaApertura:
+            if form.is_valid():
+                form.save()
         return redirect('crear_sondeo')
     else:
         form = SondeoForm()
@@ -55,8 +60,9 @@ def crearSondeo(request):
         "form":form,
         "sondeos":sondeos,
         "titulo":titulo,
+        "parametros":parametros
     }
-    return render(request, 'pag-admin.html', context)
+    return render(request, 'admin/pag-admin.html', context)
 
 @login_required(login_url="usuario-login")
 @permission_required('is_superuser')
@@ -67,12 +73,12 @@ def crearParametro(request, pk):
         if form.is_valid():
             form.save()
             print("XDDDDDDDDD")
-        return redirect('parametro.html')
+        return redirect('crear_parametro')
     else:
         form = ParametroForm()
     context={
         "titulo_pagina": titulo_pagina,
         "form":form
     }
-    return render(request, 'parametro.html', context)
+    return render(request, 'admin/crear.html', context)
 

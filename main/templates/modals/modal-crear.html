@@ -47,18 +47,16 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Añadir {{titulo}}</h5>
                 <a class="btn-close"
-                data-bs-dismiss="modal" href="{% url 'sondeo' %}" aria-label="Close"></a>
+                data-bs-dismiss="modal" href="{% url 'crear_sondeo' %}" aria-label="Close"></a>
             </div>
             <div class="modal-body">
                 <div class="mx-auto align-content-center">
                     <div class="container-fluid">
                         <div class="col-md-4">
-                            <div class="border bg-white p-3">
+                            <div class="bg-white p-3">
                                 <form method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     {{ form|crispy }}
-                                    <input class="btn btn-success btn-block"
-                                        type="submit" Value="Agregar">
                             </div>
                         </div>
                     </div>
@@ -67,8 +65,8 @@
             </div>
             <div class="modal-footer">
 
-                <a class="btn btn-secondary" data-bs-dismiss="modal" href="{% url 'sondeo' %}">Cancelar</a>
-                <a href="{% url 'sondeo' %}"><input type="submit" class="btn btn-primary" value="Agregar"></a>
+                <a class="btn btn-secondary" data-bs-dismiss="modal" href="{% url 'crear_sondeo' %}">Cancelar</a>
+                <a href="{% url 'crear_sondeo' %}"><input type="submit" class="btn btn-primary" value="Agregar"></a>
                 </form>
             </div>
         </div>

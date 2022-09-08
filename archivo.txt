@@ -1,0 +1,18 @@
+def datosUsuario(request, pk):
+    registros = CiudadanoForm.objects.all()
+    registros_obj = Ciudadano.objects.get(id=pk)
+    if request.method == 'POST':
+        form = CiudadanoForm(request.POST)
+        if form.is_valid():
+            Ciudadano.objects.filter(id=pk).update(
+                correo=form.cleaned_data.get('correo'),
+            )
+        return redirect('index')
+    else:
+        form = CiudadanoForm()
+
+    context = {
+        'registros': registros,
+        "form": form,
+    }
+    return render(request, "user/registrar.html", context)
