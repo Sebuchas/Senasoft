@@ -15,7 +15,7 @@ def crearTema(request):
         "titulo_pagina": titulo_pagina,
         "form":form
     }
-    return render(request, 'crear.html', context)
+    return render(request, 'usuarios/crear.html', context)
 
 def crearPregunta(request):
     titulo_pagina="pregunta"
@@ -30,11 +30,10 @@ def crearPregunta(request):
         "titulo_pagina": titulo_pagina,
         "form":form
     }
-    return render(request, 'crear.html', context)
+    return render(request, 'usuarios/crear.html', context)
 
 def crearSondeo(request):
     titulo_pagina="sondeo"
-    sondeos = Sondeo.objects.all()
     if request.method == 'POST':
         form= SondeoForm(request.POST, request.FILES)
         if form.is_valid():
@@ -44,10 +43,9 @@ def crearSondeo(request):
         form = SondeoForm()
     context={
         "titulo_pagina": titulo_pagina,
-        "form":form,
-        'sondeos':sondeos
+        "form":form
     }
-    return render(request, 'pag-admin.html', context)
+    return render(request, 'usuarios/crear.html', context)
 
 def crearParametro(request, pk):
     titulo_pagina="pregunta"
@@ -62,5 +60,5 @@ def crearParametro(request, pk):
         "titulo_pagina": titulo_pagina,
         "form":form
     }
-    return render(request, 'crear.html', context)
+    return render(request, 'usuarios/crear.html', context)
 

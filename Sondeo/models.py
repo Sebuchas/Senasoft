@@ -78,13 +78,15 @@ class Parametro(models.Model):
     dispositivos = models.CharField(max_length=2, db_column=u"dispositivos", choices=Dispositivos.choices, null=True, blank=True, default=Dispositivos.C)
     conectividad = models.CharField(max_length=2, db_column=u"conectividad", choices=SiNo.choices, null=True, blank=True, default=SiNo.NO)
     t_afiliacion = models.CharField(max_length=2, db_column=u"afiliacion", choices=T_afiliacion.choices, null=True, blank=True, default=T_afiliacion.S)
+    def __str__(self):
+        return self.id
 
 class Certificacion(models.Model):
     idCiudadano=models.ForeignKey(Ciudadano, db_column=u"idCiudadano", verbose_name=u"Ciudadano", on_delete=models.CASCADE)
     idSondeo=models.ForeignKey(Sondeo, db_column=u"idSondeo", verbose_name=u"Sondeo", on_delete=models.CASCADE)
     nombre=models.CharField(max_length=6, db_column=u"nSondeo", verbose_name=u"Nombre Sondeo")
     def __str__(self):
-        return self.nombre
+        return self.idSondeo+ " " + self.idCiudadano
 
 class Pregunta(models.Model):
     pregunta = models.TextField(db_column=u"pregunta", max_length=254, verbose_name=u"Pregunta")
