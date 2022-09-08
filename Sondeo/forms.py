@@ -1,4 +1,3 @@
-from dataclasses import field, fields
 from django import forms
 from Sondeo.models import *
 
@@ -15,32 +14,32 @@ class PreguntaForm(forms.ModelForm):
 class SondeoForm(forms.ModelForm):
     class Meta:
         model = Sondeo
-        fields = {'idTema','tipo','fechaApertura','fechaCierre','icono'}
+        fields = {'nombre','idTema','tipo','fechaApertura','fechaCierre','icono'}
         widgets = {
             'nombre':forms.TextInput(attrs={'class':'form-control'}),
             'idTema':forms.Select(attrs={'class':'form-control'}),
             'tipo':forms.Select(attrs={'class':'form-control'}),
             'fechaApertura': forms.DateInput(
                 format=('%d/%m/%Y'),
-                attrs={'class': 'form-control',
+                attrs={'class': 'form-control fuente',
                        'placeholder': 'Select a date',
                        'type': 'date'
                       }),
             'fechaCierre': forms.DateInput(
                 format=('%d/%m/%Y'),
-                attrs={'class': 'form-control',
+                attrs={'class': 'form-control fuente',
                        'placeholder': 'Select a date',
                        'type': 'date'
                       }),}
 
 class ParametroForm(forms.ModelForm):
     class Meta:
-        model = Parametro
-        fields = '__all__'
+        model = Sondeo
+        fields = {'sexo','departamento','municipio','etnia','discapacidad','estrato','n_educativo','d_tecnologicos','dispositivos','conectividad','t_afiliacion'}
         widgets = {
             'sexo':forms.Select(attrs={'class':'form-control'}),
-            'departamento': forms.SelectMultiple(attrs={'class':'form-control'}),
-            'municipio': forms.SelectMultiple(attrs={'class':'form-control'}),
+            'departamento': forms.Select(attrs={'class':'form-control'}),
+            'municipio': forms.Select(attrs={'class':'form-control'}),
             'etnia': forms.Select(attrs={'class':'form-control'}),
             'discapacidad': forms.Select(attrs={'class':'form-control'}),
             'estrato': forms.Select(attrs={'class':'form-control'}),

@@ -24,18 +24,15 @@
                 <form action="" method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    
+
             </div>
             <div class="modal-footer">
-                <a class="btn btn-danger Btn-White "
-                    data-bs-dismiss="modal" href="{% url 'index' %}">Cancelar</a>
-                <a href="{% url 'index' %}"><input type="submit" value="Registrar" class="btn btn-success" value="Registrar"></a>
+                <a class="btn btn-danger Btn-White"data-bs-dismiss="modal" href="{% url 'index' %}">Cancelar</a>
+                <a href="{% url 'datos_usuario' register.id %}"><input type="submit" value="Registrar" class="btn btn-success"></a>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<div class="modal-backdrop fade show"></div>
-
 <div class="modal-backdrop fade show"></div>
 {% endblock %}

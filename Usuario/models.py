@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _ 
 from Sondeo.models import *
+from django.contrib.auth.models import User
 
 class T_documento(models.TextChoices):
     CC = 'CC',_('Cédula de ciudadanía')
@@ -44,6 +45,7 @@ class Dispositivos(models.TextChoices):
 # ----------------------------------------------------------
 
 class Ciudadano(models.Model):
+    idUser=models.ForeignKey(User, on_delete=models.CASCADE, related_name='idUser')
     nombre = models.CharField(max_length=250, verbose_name=u"Nombres Completos", db_column=u"nombresCompletos")
     apellido = models.CharField(max_length=100, verbose_name=u"Apellidos", db_column=u"apellidos")
     t_doc = models.CharField(max_length=2, db_column=u"tDocumento", verbose_name="Tipo de Documento", choices=T_documento.choices)

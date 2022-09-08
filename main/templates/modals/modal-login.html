@@ -4,7 +4,7 @@
 <main class="">
     <div>
         <h1 class="text-center">
-            Bienvenido al inicio!!
+            Bienvenido al Inicio!!
         </h1>
         <div class="text-center my-5">
             <img class="img-index " src="{% static '/images/gente2.jpg' %}" ">
@@ -24,14 +24,14 @@
                 <form action="" method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    
+
             </div>
             <div class="modal-footer">
-                
+
                 <a class="btn btn-secondary"
                     data-bs-dismiss="modal" href="{% url 'index' %}">Cancelar</a>
-                <a href="{% url 'inicio' %}"><input type="submit" value="Ingresar" class="btn btn-primary" value="Ingresar"></a>
-                <a href="{% url 'registrar' %}"><input type="button" value="Crear cuenta" class="btn btn-success" value="Crear cuenta"></a>
+                <a href="{% url 'index' %}"><input type="submit"class="btn btn-primary" value="Ingresar"></a>
+                <a href="{% url 'registrar' %}"><input type="button" value="Crear cuenta" class="btn btn-success"></a>
                 </form>
             </div>
         </div>
