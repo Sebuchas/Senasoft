@@ -1,0 +1,27 @@
+{% extends 'partials/body.html' %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+
+<h1 class="text-center">Gestión de Sondeos</h1>
+
+<div class="container-fluid m-1 d-flex w-100 h-auto">
+    <!-- filtros -->
+
+    <div class="container-fluid c_cards d-flex m-2 flex-wrap align-items-stretch justify-content-around">
+         {% for sondeo in sondeos %}
+            <div class="card cards_ m-2">
+            <h4 class="ps-2 pt-2">Sondeo No.{{sondeo.id}} {{sondeo.name}}</h3>
+            <img src="{{sondeo.icono.url}}" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">{{sondeo.idTema.tema}}</h5>
+                <p class="card-text">{{sondeo.fechaApertura}} - {{sondeo.fechaCierre}}</p>
+
+                <a href="#" class="btn btn-primary">Ver Sondeo</a>
+                </div>
+            <br>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock contenido %}

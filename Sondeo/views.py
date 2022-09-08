@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from Sondeo.models import *
 from Sondeo.forms import *
+from django.contrib.auth.decorators import login_required, permission_required
 
+@login_required(login_url="usuario-login")
+@permission_required('is_superuser')
 def crearTema(request):
     titulo_pagina="tema"
     if request.method == 'POST':
@@ -17,6 +20,8 @@ def crearTema(request):
     }
     return render(request, 'crear.html', context)
 
+@login_required(login_url="usuario-login")
+@permission_required('is_superuser')
 def crearPregunta(request):
     titulo_pagina="pregunta"
     if request.method == 'POST':
@@ -32,6 +37,8 @@ def crearPregunta(request):
     }
     return render(request, 'crear.html', context)
 
+@login_required(login_url="usuario-login")
+@permission_required('is_superuser')
 def crearSondeo(request):
     titulo_pagina="sondeo"
     sondeos = Sondeo.objects.all()
@@ -51,6 +58,8 @@ def crearSondeo(request):
     }
     return render(request, 'pag-admin.html', context)
 
+@login_required(login_url="usuario-login")
+@permission_required('is_superuser')
 def crearParametro(request, pk):
     titulo_pagina="pregunta"
     if request.method == 'POST':
