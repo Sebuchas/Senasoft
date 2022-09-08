@@ -16,11 +16,11 @@ def inicio(request):
         'titulo':titulo,    }
     if 'ingreso':
         print('Holiwipigui')
-    return render(request,'index.html',context)
+    return render(request,'inicio.html',context)
 
 
 def index(request):
-    titulo_pagina="Inicio"      
+    titulo_pagina="Inicio"
     context={
         'titulo_pagina':titulo_pagina,
     }
@@ -28,7 +28,7 @@ def index(request):
 
  
 def certificado(request):
-    titulo_pagina="Inicio"      
+    titulo_pagina="Inicio"     
     context={
         'titulo_pagina':titulo_pagina,
     }

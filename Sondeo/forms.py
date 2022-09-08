@@ -10,13 +10,13 @@ class PreguntaForm(forms.ModelForm):
     class Meta:
         model=Pregunta
         fields = '__all__'
-        
+
 class SondeoForm(forms.ModelForm):
     class Meta:
         model = Sondeo
         fields = {'nombre','idTema','tipo','fechaApertura','fechaCierre','icono'}
         widgets = {
-            'nombre':forms.Select(attrs={'class':'form-control'}),
+            'nombre':forms.TextInput(attrs={'class':'form-control'}),
             'idTema':forms.Select(attrs={'class':'form-control'}),
             'tipo':forms.Select(attrs={'class':'form-control'}),
             'fechaApertura': forms.DateInput(
