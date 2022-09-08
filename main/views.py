@@ -9,21 +9,24 @@ from django.template.loader import render_to_string
 
 
 def inicio(request):
-    titulo_pagina="Inicio"      
+    titulo_pagina="Inicio"
+    titulo = "Sondeo"
     context={
         'titulo_pagina':titulo_pagina,
-    }
+        'titulo':titulo,    }
+    if 'ingreso':
+        print('Holiwipigui')
     return render(request,'inicio.html',context)
 
 def index(request):
-    titulo_pagina="Inicio"      
+    titulo_pagina="Inicio"
     context={
         'titulo_pagina':titulo_pagina,
     }
     return render(request,'index.html',context)
  
 def certificado(request):
-    titulo_pagina="Inicio"      
+    titulo_pagina="Inicio"     
     context={
         'titulo_pagina':titulo_pagina,
     }

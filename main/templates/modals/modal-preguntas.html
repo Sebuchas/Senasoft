@@ -1,0 +1,93 @@
+{% extends 'partials/body.html' %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+<h1 class="text-center">Gestión de Sondeos</h1>
+
+<div class="container-fluid m-1 d-flex w-100 h-auto">
+    <div class="col-4 d-flex w-25">
+        <div class="row formulario p-3 h-100">
+            <h2 class="text-start">Agregar {{titulo}}</h2>
+            <form class="fuente" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input class="btn btn-success btn-block mt-1"
+                    type="submit" Value="Agregar">
+            </form>
+        <div class="row align-items-center">
+            <a href="" class="btn btn-success mt-3">Agregar preguntas</a>
+            <a href="" class="btn btn-success mt-3">Agregar temas</a>
+            <a href="" class="btn btn-success mt-3">Agregar parámetros</a>
+        </div>
+        </div>
+    </div>
+
+    <!-- filtros -->
+
+    <div class="container-fluid c_cards d-flex m-2 flex-wrap align-items-stretch justify-content-around">
+         {% for sondeo in sondeos %}
+            <div class="card cards_ m-2">
+            <h4 class="ps-2 pt-2">Sondeo No.{{sondeo.id}} {{sondeo.name}}</h3>
+            <img src="{{sondeo.icono.url}}" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">{{sondeo.idTema.tema}}</h5>
+                <p class="card-text">{{sondeo.fechaApertura}} - {{sondeo.fechaCierre}}</p>
+
+                <a href="#" class="btn btn-primary">Ver Sondeo</a>
+                </div>
+            <br>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="modal fade show" id="exampleModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog" style="display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Añadir {{titulo}}</h5>
+                <a class="btn-close"
+                data-bs-dismiss="modal" href="{% url 'sondeo' %}" aria-label="Close"></a>
+            </div>
+            <div class="modal-body">
+                <div class="mx-auto align-content-center">
+                    <div class="container-fluid">
+                        <div class="col-md-4">
+                            <div class="border bg-white p-3">
+                                <form method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
+                                    <input class="btn btn-success btn-block"
+                                        type="submit" Value="Agregar">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+                <a class="btn btn-secondary" data-bs-dismiss="modal" href="{% url 'sondeo' %}">Cancelar</a>
+                <a href="{% url 'sondeo' %}"><input type="submit" class="btn btn-primary" value="Agregar"></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show"></div>
+
+<div class="mx-auto align-content-center">
+    <div class="container-fluid">
+        <div class="col-md-4">
+            <div class="border bg-white p-3">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input class="btn btn-success btn-block"
+                        type="submit" Value="Agregar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}
